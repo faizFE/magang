@@ -3,6 +3,11 @@ session_start();
 if(!(isset($_SESSION['status']))){
     header('location: index.php');
 }
+
+if(isset($_SESSION['kata'])) {
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,31 +18,42 @@ if(!(isset($_SESSION['status']))){
     <title>Dashboard</title>
 </head>
 <body>
-    <h1 class="text-center">Dashboard</h1>
-    <div class="container text-center">
-        <div class="mt-5">
-            <form action="">
-                <div>
-                    <label for="angka">Testing angka</label>
-                    <input type="text" placeholder="masukkan angka" id="angka">
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="card border-3 border-primary rounded-90 m-auto" style="width: 50rem;">
+            <h1 class="text-center mt-5">Dashboard</h1>
+            <div class="container">
+                <div class="mt-5">
+                    <form action="" method="GET">
+                        <div class="d-flex flex-column gap-2 align-items-center">
+                            <div class="d-flex flex-column">
+                                <p><strong><?= $_GET['kata'] ?? ''?></strong></p>
+                                <label for="" class="">Cetak Kata</label>
+                                <input type="text" placeholder="masukkan kata" id="kata" class="rounded-2 border-1"
+                                    style="width: 20rem;" name="kata">
+                            </div>
+                            <button class="btn btn-outline-primary" id="button">Cetak</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="mt-4"> 
-                    <button class="btn btn-outline-primary" id="btn">Test</button>
-                </div>
-            </form>
+            </div>
+            <div class="text-center my-5">
+                <a href="logout.php"><button class="btn btn-danger">Keluar</button></a>
+            </div>
         </div>
     </div>
 
-    <div class="text-center mt-5">
-        <a href="logout.php"><button class="btn btn-danger" name="button">Keluar</button></a>
-    </div>
-
     <!-- <script>
-        const angkaInput = document.querySelector('#angka')
-        const buttonTest = document.querySelector('#btn')
+        const angka = document.querySelector('#angka');
+        const buttonTest = document.querySelector('#button');
 
         buttonTest.addEventListener('click', () => {
-            let alert = 'cek'
+            const valueAngka = angka.value;
+            if (valueAngka % 2 === 0) {
+                msgalert = 'angka genap'
+            } else {
+                msgalert = 'angka ganjil'
+            }
+            alert(msgalert);
         })
     </script> -->
 </body>

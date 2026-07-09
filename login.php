@@ -14,5 +14,4 @@ if($username === "faiz" && $password === "1234") {
 } else {
     header('location: index.php');
 }
-
 ?>
