@@ -4,9 +4,20 @@ if(!(isset($_SESSION['status']))){
     header('location: index.php');
 }
 
-if(isset($_SESSION['kata'])) {
+// unset($_SESSION['pesan']);
 
-}
+// if(isset($_SESSION['pesan'])) {
+//     $_SESSION['pesan'] = "login berhasil";
+// }
+
+// if(empty($_GET['kata'])) {
+//     $_GET['kata'] = ('tes');
+// }
+
+// if(empty($_GET['kata'])) {
+//     $_GET['kata'] = 'testt';
+// }
+
 
 ?>
 <!DOCTYPE html>
@@ -23,10 +34,11 @@ if(isset($_SESSION['kata'])) {
             <h1 class="text-center mt-5">Dashboard</h1>
             <div class="container">
                 <div class="mt-5">
-                    <form action="" method="GET">
+                    <form action="cetak.php" method="GET">
                         <div class="d-flex flex-column gap-2 align-items-center">
                             <div class="d-flex flex-column">
-                                <p><strong><?= $_GET['kata'] ?? ''?></strong></p>
+                                <p><strong><?= $_SESSION['pesan'] ?? ''; ?></strong></p>
+                                <p><strong><?= $_SESSION['kata'] ?? '';?></strong></p>
                                 <label for="" class="">Cetak Kata</label>
                                 <input type="text" placeholder="masukkan kata" id="kata" class="rounded-2 border-1"
                                     style="width: 20rem;" name="kata">
