@@ -21,11 +21,12 @@ if(isset($_SESSION['status'])) {
     <div class="container text-center">
         <div class="mt-5">
             <form action="login.php" method="POST">
-                <div class="">
+                <p name="pesan"><strong><?= $_SESSION['pesan'] ?? ''; ?></strong></p>
+                <div>
                     <label for="Username" class="form-label">Username</label>
                     <input type="text" id="username" placeholder="Username" name="username">
                 </div>
-                <div class="">
+                <div>
                     <label for="Password" class="form-label">Password</label>
                     <input type="password" id="password" placeholder="Password" name="password">
                 </div>
